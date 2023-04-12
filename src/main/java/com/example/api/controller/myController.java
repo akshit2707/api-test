@@ -1,6 +1,7 @@
 package com.example.api.controller;
 
 import com.example.api.modal.User;
+import com.example.api.modal.UserInput;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,13 +23,14 @@ public class myController {
     }
 
     @PostMapping ("/users")
-    public User getUserByPhone(RequestBody data){
+    public User getUserByPhone(@RequestBody UserInput input){
         User user  = new User();
-        user.setFirstName("Akshit");
-        user.setLastName("Kumar");
-        user.setPhoneNumber("9113393182");
-        user.setId(String.valueOf(data));
-        return  user;
+        user.setFirstName(input.getFirstName());
+        user.setLastName(input.getLastName());
+        user.setPhoneNumber(input.getPhoneNumber());
+        user.setId("123");
+        user.setNickName("RandomString");
+        return user;
     }
 
 }

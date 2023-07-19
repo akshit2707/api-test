@@ -33,7 +33,7 @@ public class TddControllerTest {
     void testTddController123(){
         Mockito.when(tddService.getFinalName(Mockito.anyString(),Mockito.anyString())).thenThrow(new RuntimeException());
         ResponseEntity<String> entity = tddController.getName();
-        Assertions.assertEquals(HttpStatus.BAD_REQUEST,entity.getStatusCode());
+        Assertions.assertEquals(HttpStatus.INTERNAL_SERVER_ERROR,entity.getStatusCode());
 
     }
 }

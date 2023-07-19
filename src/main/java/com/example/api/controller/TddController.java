@@ -15,7 +15,7 @@ public class TddController {
         try {
             return ResponseEntity.ok(tddService.getFinalName("Akshit", "kumar"));
         }catch (Exception e){
-            return (ResponseEntity<String>) ResponseEntity.internalServerError();
+            return ResponseEntity.internalServerError().body("Bad data");
         }
     }
 
